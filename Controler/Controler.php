@@ -15,34 +15,32 @@ try {
 ///ajout d oeuvre///
 
 if(isset($_POST['ajout'])){
-    if(!empty($_POST['titre']) && !empty($_POST['titrefr']) && !empty($_POST['sortie']) && !empty($_POST['resume']) && !empty($_POST['libelle_categorie']) && !empty($_POST['nombre_episodes'])&& !empty($_POST['liste_acteurs'])&& !empty($_POST['nom_realisateur'])){
-        $titre = $_POST['titre'];
-        $titrefr = $_POST['titrefr'];
-        $sortie = $_POST['sortie'];
-        $resume = $_POST['resume'];
-        $nombre_episodes = $_POST['nombre_episodes'];
-        $libelle_categorie = $_POST['libelle_categorie'];
-        $genre = $_POST['libelle_genre'] ;
+    if(!empty($_POST['titre']) && !empty($_POST['titrefr']) && !empty($_POST['sortie']) && !empty($_POST['resume']) && !empty($_POST['libelle_categorie']) && !empty($_POST['nombre_episodes'])&& !empty($_POST['libelle_genre']) && !empty($_POST['nom_acteur']) && !empty($_POST['nom_realisateur'])){
 
-        $requestreal = $pdo->prepare("SELECT codRea FROM realisateur where nomRea,preRea =" ($_POST['nomreal'], $_POST['prereal']));
-        $requestreal->execute();
-        $reponsereal = $requestreal;
-        $realisateur = $reponsereal;
+        ///on recupere les informations du formulaire de l oeuvre et on evite les injectons de code dans ces derniers grace au specialchars et mettre les intval pour mettre les select en entier
+        $titre = htmlspecialchars($_POST['titre']);
+        $titrefr = htmlspecialchars($_POST['titrefr']);
+        $sortie = intval($_POST['sortie']);
+        $resume = htmlspecialchars($_POST['resume']);
+        $nombre_episodes = intval($_POST['nombre_episodes']);
+        $libelle_categorie = intval($_POST['libelle_categorie']);
+        $genre = intval($_POST['libelle_genre']);
+        $acteur = intval($_POST['nom_acteur']);
+        $realisateur = intval($_POST['nom_realisateur']);
 
-        $requestacteur = $pdo->prepare("SELECT codeAct FROM acteur where nomAct,preAct =" ($_POST['nomAct'], $_POST['preAct']));
-        $requestacteur->execute();
-        $reponseacteur = $requestacteur;
-        $acteur = $reponseacteur;
-
-        $requestoeuvre = $pdo->prepare("SELECT codifOC FROM oeuvrecinematographique where titreOriginal ="($_POST['titre']));
-        $requestoeuvre ->execute();
-        $reponseoeuvre = $requestoeuvre;
-        $oeuvre = $reponseoeuvre;
-
+        ///insert l oeuvre
         $request = $pdo->prepare("INSERT INTO oeuvrecinematographique (titreOriginal, titreFrancais, anneeSortie, resume, nbEpisode, codRea, classOC, codGenre) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?)");
-        $request->execute([$titre, $titrefr, $sortie, $resume, $nombre_episodes,$realisateur, $libelle_categorie, $genre]);
-        $requestajoutacteur = $pdo->prepare("insert into jouer (codeAct,codifOC,roleAct) values "($acteur,$oeuvre,1));
-        $requestajoutacteur->execute();
+        $request->execute([$titre, $titrefr, $sortie, $resume, $nombre_episodes,$realisateur , $libelle_categorie, $genre]);
+
+        ///trouve le code de l oeuvre
+        $requestoeuvre = $pdo->prepare("SELECT codifOC FROM oeuvrecinematographique where titreOriginal = (?)");
+        $requestoeuvre ->execute([$titre]);
+        $reponseoeuvre = $requestoeuvre->fetchColumn();
+        $reponseoeuvreentier = intval($reponseoeuvre);
+
+        ///relie l oeuvre a l acteur
+        $requestajoutacteur = $pdo->prepare("insert into jouer (codeAct,codifOC,roleAct) values (?,?,?)");
+        $requestajoutacteur->execute([$acteur,$reponseoeuvreentier,1]);
     }
 }
 
