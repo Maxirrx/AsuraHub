@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bcebd3f4-fdf0-4626-8398-519ba0b6663e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Controler/Controler.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controler/Controler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/ajoutOeuvre.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/ajoutOeuvre.php" afterDir="false" />
-    </list>
+    <list default="true" id="896311c3-9fde-4aa7-9f13-4fe6bc2c4cb4" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,10 +16,11 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 7
-}]]></component>
-  <component name="ProjectId" id="2gVuCqPTIlvgOzf3omQm3UTMixM" />
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2gWEe0pNvYwTOO8F7lboyyO9hcx" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -30,8 +28,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Maxime",
-    "last_opened_file_path": "C:/wamp64/www/ProjetPhp/AsuraHub",
+    "git-widget-placeholder": "main",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -51,12 +48,14 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="bcebd3f4-fdf0-4626-8398-519ba0b6663e" name="Changes" comment="" />
-      <created>1715794942295</created>
+      <changelist id="896311c3-9fde-4aa7-9f13-4fe6bc2c4cb4" name="Changes" comment="" />
+      <created>1715805026234</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1715794942295</updated>
-      <workItem from="1715794943245" duration="5821000" />
+      <updated>1715805026234</updated>
+      <workItem from="1715805027105" duration="1083000" />
+      <workItem from="1715806261386" duration="412000" />
+      <workItem from="1715808294414" duration="669000" />
     </task>
     <servers />
   </component>
