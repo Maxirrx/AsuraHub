@@ -45,7 +45,7 @@ if(isset($_POST['ajout'])){
 }
 
 
-///menu deroulant cartegorie///
+        ///menu deroulant cartegorie///
         $requestcategorie = $pdo->prepare("SELECT classOC, libclaOC FROM Classification");
         $requestcategorie->execute();
         $data = $requestcategorie->fetchAll();
@@ -54,34 +54,34 @@ if(isset($_POST['ajout'])){
 
 
 
-///menu deroulant genre///
-$requestcategorie = $pdo->prepare("SELECT codGenre, libgOC FROM Genre");
-$requestcategorie->execute();
-$data2 = $requestcategorie->fetchAll();
-$tableau2[] = $data2;
+        ///menu deroulant genre///
+        $requestcategorie = $pdo->prepare("SELECT codGenre, libgOC FROM Genre");
+        $requestcategorie->execute();
+        $data2 = $requestcategorie->fetchAll();
+        $tableau2[] = $data2;
 
 
 
-///menu deroulant realisateur///
-$requestcategorie = $pdo->prepare("SELECT codeAct, nomAct, preAct FROM Acteur");
-$requestcategorie->execute();
-$data3 = $requestcategorie->fetchAll();
-$tableau3[] = $data3;
+        ///menu deroulant realisateur///
+        $requestcategorie = $pdo->prepare("SELECT codeAct, nomAct, preAct FROM Acteur");
+        $requestcategorie->execute();
+        $data3 = $requestcategorie->fetchAll();
+        $tableau3[] = $data3;
 
 
 
-///menu deroulant acteur///
-$requestcategorie = $pdo->prepare("SELECT codRea, nomRea, prenomRea FROM Realisateur");
-$requestcategorie->execute();
-$data4 = $requestcategorie->fetchAll();
-$tableau4[] = $data4;
+        ///menu deroulant acteur///
+        $requestcategorie = $pdo->prepare("SELECT codRea, nomRea, prenomRea FROM Realisateur");
+        $requestcategorie->execute();
+        $data4 = $requestcategorie->fetchAll();
+        $tableau4[] = $data4;
 
 
 
 
-///modifier oeuvre///
-if(isset($_POST['edit'])){
+        ///modifier oeuvre///
+        if(isset($_POST['edit'])){
 
-}elseif (isset($_POST['delete'])){
-    $requestsup = $pdo->prepare("DELETE FROM oeuvrecinematographique WHERE titreOriginal ="($_POST['filmmodif']));
+        }elseif (isset($_POST['delete'])){
+            $requestsup = $pdo->prepare("DELETE FROM oeuvrecinematographique WHERE titreOriginal ="($_POST['filmmodif']));
 }
