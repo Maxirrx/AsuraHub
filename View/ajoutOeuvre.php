@@ -98,7 +98,7 @@
                 <br>
                 <br>
                 <textarea name="resume" placeholder="Résumé de l'œuvre" required></textarea>
-                <input type="number" name="nombre_episodes" placeholder="Nombre d'épisodes" required>
+                <input type="number" name="nombre_episodes" placeholder="Nombre d'épisodes" min ="0" required>
                 <h4>Nom de la categorie</h4>
                 <select type = "number" name="libelle_categorie" size="1">
                     <?php foreach ($data as $catego): ?>
