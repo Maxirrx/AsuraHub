@@ -6,6 +6,9 @@
             'yearOfRelease' => 2023,
             'numbersOfEpisodes' => 1,
             'poster' => './assets/images/fast_furious_x.webp',
+            'actors' => 'Acteurs : Vin Diesel, Michel Rodriguez, Jason Momoa, Tyrese Gibson, Ludacris, John Cena, Joradana Brewster',
+            'realisator' => 'Réalisateur : Louis Leterrier',
+
     ];
 
 include '../Controler/Controler.php';
@@ -23,15 +26,25 @@ include '../Controler/Controler.php';
 <?php
     include 'header.php';
 ?>
-    <main>
+   <main>
     <section class="details_films">
-        <h2>details_films</h2>
+        <div class="container">
             <div class="details_film-card">
-                <h3><?= $details_film['title'] ?></h3>
                 <img class="details_film-poster" alt="<?= $details_film['title'] ?>" src="<?= $details_film['poster'] ?>" />
-                <p><?= $details_film['content'] ?></p>
-                <p><?= $details_film['yearOfRelease'] ?></p>
-                <p><?= $details_film['numbersOfEpisodes'] ?></p>
+                <div class="details_film-info">
+                    <h2><?= $details_film['title'] ?></h2>
+                    <p class="film-description"><?= $details_film['content'] ?></p>
+                    <ul class="film-details">
+                        <li><strong>Année de sortie:</strong> <?= $details_film['yearOfRelease'] ?></li>
+                        <li><strong>Nombre d'épisodes:</strong> <?= $details_film['numbersOfEpisodes'] ?></li>
+                        <li><strong>Acteurs:</strong> <?= $details_film['actors'] ?></li>
+                        <li><strong>Réalisateur:</strong> <?= $details_film['realisator'] ?></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
             </div>
     </section>
 </main>
