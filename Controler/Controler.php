@@ -1,4 +1,8 @@
 <?php
+///inclusion du DAO nécessaire
+include OeuvreCinematographiqueDAO::class;
+
+
 ///connexion a la base///
 
 $url = 'mysql:host=localhost;dbname=asurahub';
@@ -41,6 +45,7 @@ if(isset($_POST['ajout'])){
 
         $request = $pdo->prepare("INSERT INTO oeuvrecinematographique (titreOriginal, titreFrancais, anneeSortie, resume, nbEpisode, codRea, classOC, codGenre) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?)");
         $request->execute([$titre, $titrefr, $sortie, $resume, $nombre_episodes,$realisateur, $libelle_categorie, $genre]);
+
         $requestajoutacteur = $pdo->prepare("insert into jouer (codeAct,codifOC,roleAct) values "($acteur,$oeuvre,1));
         $requestajoutacteur->execute();
     }
