@@ -416,14 +416,20 @@ main {
     right: 0;
 }
 
+<<<<<<< Updated upstream
 /* Reset CSS */
+=======
+>>>>>>> Stashed changes
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+<<<<<<< Updated upstream
 /* Global Styles */
+=======
+>>>>>>> Stashed changes
 body {
     font-family: Arial, sans-serif;
     background-color: #121212;
@@ -436,7 +442,10 @@ body {
     margin: 0 auto;
 }
 
+<<<<<<< Updated upstream
 /* Header Styles */
+=======
+>>>>>>> Stashed changes
 header {
     background-color: #333;
     color: #fff;
@@ -461,7 +470,10 @@ nav ul li a {
     text-decoration: none;
 }
 
+<<<<<<< Updated upstream
 /* Main Content Styles */
+=======
+>>>>>>> Stashed changes
 .details_films {
     padding: 50px 0;
 }
@@ -505,7 +517,10 @@ nav ul li a {
     font-weight: bold;
 }
 
+<<<<<<< Updated upstream
 /* Footer Styles */
+=======
+>>>>>>> Stashed changes
 footer {
     background-color: #333;
     color: #fff;
