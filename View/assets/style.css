@@ -81,7 +81,7 @@ main {
 }
 
 .film-poster {
-    width: 100%;
+    width: 65%;
     height: auto; 
     border-radius: 10px 10px 0 0; 
     object-fit: cover; 
@@ -377,4 +377,138 @@ main {
 
 .edit-work-container input[type="submit"]:hover {
     background-color: #0066cc;
+}
+
+
+.carousel {
+    position: relative;
+    overflow: hidden;
+    width: 80%; /* Ajustez la largeur selon vos besoins */
+    margin: 0 auto;
+}
+
+.film-posters {
+    display: flex;
+    transition: transform 0.5s ease; /* Transition fluide pour le défilement */
+}
+
+.film-posters img {
+    width: 200px; /* Ajustez la taille des affiches selon vos besoins */
+    margin-right: 20px; /* Espace entre les affiches */
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 24px;
+    color: rgb(16, 15, 15);
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+}
+
+.arrow.left {
+    left: 0;
+}
+
+.arrow.right {
+    right: 0;
+}
+
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+/* Header Styles */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+}
+
+header h1 {
+    font-size: 24px;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Main Content Styles */
+.details_films {
+    padding: 50px 0;
+}
+
+.details_film-card {
+    display: flex;
+    align-items: center;
+    background-color: #333;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.details_film-poster {
+    width: 300px;
+    height: auto;
+}
+
+.details_film-info {
+    padding: 30px;
+}
+
+.details_film-info h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.film-description {
+    margin-bottom: 20px;
+}
+
+.film-details {
+    list-style: none;
+}
+
+.film-details li {
+    margin-bottom: 10px;
+}
+
+.film-details li strong {
+    font-weight: bold;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
 }
