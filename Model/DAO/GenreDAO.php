@@ -1,6 +1,6 @@
 <?php
 
-require_once 'Genre.php'; // Inclure la classe Genre
+require_once ('../BO/Genre.php');
 
 class GenreDAO {
 
@@ -19,7 +19,7 @@ class GenreDAO {
         ]);
     }
 
-    public function getGenre(string $codGenre): ?Genre {
+    public function getGenre(int $codGenre): ?Genre {
         $sql = "SELECT * FROM Genre WHERE codGenre = ?";
         $stmt = $this->db->prepare($sql);
         $stmt->execute([$codGenre]);
@@ -42,19 +42,19 @@ class GenreDAO {
         ]);
     }
 
-    public function deleteGenre(string $codGenre): void {
+    public function deleteGenre(int $codGenre): void {
         $sql = "DELETE FROM Genre WHERE codGenre = ?";
         $stmt = $this->db->prepare($sql);
         $stmt->execute([$codGenre]);
     }
 
-    public function getAllGenres(): array {
+///fonctionnel
+    public function getAllGenres() {
         $sql = "SELECT * FROM Genre";
         $resultat = $this->db->query($sql);
-        $genresData = $resultat->fetchAll(PDO::FETCH_ASSOC);
+        $resultat->setFetchMode(PDO::FETCH_ASSOC);
 
-        $genres = [];
-        foreach ($genresData as $row) {
+        foreach ($resultat as $row) {
             $genres[] = new Genre(
                 $row['codGenre'],
                 $row['libgOC']

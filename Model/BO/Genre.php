@@ -2,11 +2,11 @@
 
 class Genre{
 
-    private String $codGenre;
+    private int $codGenre;
     private String $libgOC;
 
 
-    public function __construct(string $codGenre, string $libgOC)
+    public function __construct(int $codGenre, string $libgOC)
     {
 
 
@@ -14,12 +14,12 @@ class Genre{
         $this->libgOC = $libgOC;
     }
 
-    public function getCodGenre(): string
+    public function getCodGenre(): int
     {
         return $this->codGenre;
     }
 
-    public function setCodGenre(string $codGenre): void
+    public function setCodGenre(int $codGenre): void
     {
         $this->codGenre = $codGenre;
     }

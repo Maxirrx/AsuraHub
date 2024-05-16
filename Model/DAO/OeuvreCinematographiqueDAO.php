@@ -1,18 +1,18 @@
 <?php
-
-require_once 'OeuvreCinematographique.php'; // Inclure la classe OeuvreCinematographique
+require_once ("../BO/OeuvreCinematographique.php");
+//require_once 'OeuvreCinematographique.php'; // Inclure la classe OeuvreCinematographique
 
 class OeuvreCinematographiqueDAO {
 
-    private PDO $db;
+    private $bdd;
 
-    public function __construct(PDO $db) {
-        $this->db = $db;
+    public function __construct(\PDO $bdd) {
+        $this->bdd = $bdd;
     }
 
     public function addOeuvreCinematographique(OeuvreCinematographique $oeuvre): void {
         $sql = "INSERT INTO OeuvreCinematographique (codifOC, titreOriginal, titreFrancais, anneeSortie, resume, nbEpisode, codGenre, classOC, codRea) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        $stmt = $this->db->prepare($sql);
+        $stmt = $this->bdd->prepare($sql);
         $stmt->execute([
             $oeuvre->getCodifOC(),
             $oeuvre->getTitreOriginal(),
@@ -69,10 +69,10 @@ class OeuvreCinematographiqueDAO {
         $stmt->execute([$codifOC]);
     }
 
-    public function getAllOeuvresCinematographiques(): array {
-        $sql = "SELECT * FROM OeuvreCinematographique";
-        $resultat = $this->db->query($sql);
-        $oeuvresData = $resultat->fetchAll(PDO::FETCH_ASSOC);
+    public function getAllOeuvresCinematographiques() {
+        $sql = ("SELECT * FROM OeuvreCinematographique");
+        $resultat = $this->bdd->execute($sql);
+        $oeuvresData = $resultat->fetchAll(\PDO::FETCH_ASSOC);
 
         $oeuvres = [];
         foreach ($oeuvresData as $row) {
