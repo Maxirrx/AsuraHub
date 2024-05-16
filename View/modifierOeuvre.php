@@ -15,8 +15,8 @@ include '../Controler/Controler.php';
 <main>
     <div class="edit-work-container">
         <h2>Modifier ou Supprimer une œuvre</h2>
-        <form action="modifier_oeuvre.php" method="post">
-            <select type = "number" name="filmmodif" size="1">
+        <form action="../View/modifierOeuvre.php" method="post">
+            <select name="filmmodif" size="1">
                 <?php foreach ($nomoeuvre as $oeuvremodifiable): ?>
                     <option value="<?php echo $oeuvremodifiable['codifOC']; ?>"><?php echo $oeuvremodifiable['titreOriginal']; ?></option>
                 <?php endforeach; ?>
