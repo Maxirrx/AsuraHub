@@ -1,6 +1,6 @@
 <?php
 ///inclusion du DAO nécessaire
-include OeuvreCinematographiqueDAO::class;
+///include OeuvreCinematographiqueDAO::class;
 
 
 ///connexion a la base///
