@@ -1,6 +1,5 @@
 <?php
 
-require_once 'Jouer.php'; // Inclure la classe Jouer
 
 class JouerDAO {
 
