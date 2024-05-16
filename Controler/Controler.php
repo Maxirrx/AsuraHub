@@ -1,4 +1,8 @@
 <?php
+///inclusion du DAO nécessaire
+include OeuvreCinematographiqueDAO::class;
+
+
 ///connexion a la base///
 
 $url = 'mysql:host=localhost;dbname=asurahub';
@@ -30,6 +34,7 @@ if(isset($_POST['ajout'])){
 
         ///insert l oeuvre
         $request = $pdo->prepare("INSERT INTO oeuvrecinematographique (titreOriginal, titreFrancais, anneeSortie, resume, nbEpisode, codRea, classOC, codGenre) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?)");
+
         $request->execute([$titre, $titrefr, $sortie, $resume, $nombre_episodes,$realisateur , $libelle_categorie, $genre]);
 
         ///trouve le code de l oeuvre
@@ -41,6 +46,12 @@ if(isset($_POST['ajout'])){
         ///relie l oeuvre a l acteur
         $requestajoutacteur = $pdo->prepare("insert into jouer (codeAct,codifOC,roleAct) values (?,?,?)");
         $requestajoutacteur->execute([$acteur,$reponseoeuvreentier,1]);
+
+        $request->execute([$titre, $titrefr, $sortie, $resume, $nombre_episodes,$realisateur, $libelle_categorie, $genre]);
+
+        $requestajoutacteur = $pdo->prepare("insert into jouer (codeAct,codifOC,roleAct) values "($acteur,$oeuvre,1));
+        $requestajoutacteur->execute();
+
     }
 }
 
