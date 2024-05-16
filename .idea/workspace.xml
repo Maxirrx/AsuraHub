@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="896311c3-9fde-4aa7-9f13-4fe6bc2c4cb4" name="Changes" comment="" />
+    <list default="true" id="896311c3-9fde-4aa7-9f13-4fe6bc2c4cb4" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/DAO/JouerDAO.php" beforeDir="false" afterPath="$PROJECT_DIR$/Model/DAO/JouerDAO.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,7 +31,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "Remi-Jean-BO-DAO-",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -56,6 +59,7 @@
       <workItem from="1715805027105" duration="1083000" />
       <workItem from="1715806261386" duration="412000" />
       <workItem from="1715808294414" duration="669000" />
+      <workItem from="1715876735935" duration="10588000" />
     </task>
     <servers />
   </component>
