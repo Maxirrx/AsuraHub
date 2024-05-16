@@ -1,6 +1,5 @@
 <?php
 
-require_once ('../BO/Genre.php');
 
 class GenreDAO {
 
@@ -10,13 +9,10 @@ class GenreDAO {
         $this->db = $db;
     }
 
-    public function addGenre(Genre $genre): void {
-        $sql = "INSERT INTO Genre (codGenre, libgOC) VALUES (?, ?)";
+    public function addGenre(string $libgOC): void {
+        $sql = "INSERT INTO Genre (libgOC) VALUES (?)";
         $stmt = $this->db->prepare($sql);
-        $stmt->execute([
-            $genre->getCodGenre(),
-            $genre->getLibgOC()
-        ]);
+        $stmt->execute([$libgOC]);
     }
 
     public function getGenre(int $codGenre): ?Genre {
