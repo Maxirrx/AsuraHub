@@ -1,6 +1,6 @@
 <?php
 
-require_once 'Classification.php'; // Inclure la classe Classification
+
 
 class ClassificationDAO {
 
@@ -10,13 +10,10 @@ class ClassificationDAO {
         $this->db = $db;
     }
 
-    public function addClassification(Classification $classification): void {
-        $sql = "INSERT INTO classification (classOC, libclaOC) VALUES (?, ?)";
+    public function addClassification(string $libclaOC): void {
+        $sql = "INSERT INTO classification (libclaOC) VALUES (?)";
         $stmt = $this->db->prepare($sql);
-        $stmt->execute([
-            $classification->getClassOC(),
-            $classification->getLibclaOC()
-        ]);
+        $stmt->execute([$libclaOC]);
     }
 
     public function getClassification(int $classOC): ?Classification {
