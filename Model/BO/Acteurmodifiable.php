@@ -1,34 +1,24 @@
 <?php
 
 
-class Acteur{
+class Acteurajoutable{
 
-    private int $codeAct;
+
     private String $nomAct;
     private String $preAct;
     private String $natAct;
     private String $datnaissAct;
 
 
-    public function __construct(int $codeAct, string $nomAct, string $preAct, string $natAct, String $datnaissAct){
+    public function __construct(string $nomAct, string $preAct, string $natAct, String $datnaissAct){
 
 
-        $this->codeAct = $codeAct;
         $this->nomAct = $nomAct;
         $this->preAct = $preAct;
         $this->natAct = $natAct;
         $this->datnaissAct = $datnaissAct;
     }
 
-    public function getCodeAct(): int
-    {
-        return $this->codeAct;
-    }
-
-    public function setCodeAct(int $codeAct): void
-    {
-        $this->codeAct = $codeAct;
-    }
 
     public function getNomAct(): string
     {

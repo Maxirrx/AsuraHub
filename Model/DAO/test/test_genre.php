@@ -16,8 +16,6 @@ $bdd= initialiseConnexionBDD();
         $supprimer = $genre1->deleteGenre(1);
         var_dump($supprimer);
 
-
-
 /////////////test modifier
         $genremodif = new Genre(11,"riz-poulet");
         try {
@@ -27,10 +25,6 @@ $bdd= initialiseConnexionBDD();
         }catch (Exception $e){
                 echo $e->getMessage();
         }
-
-
-
-
 
 ////////////ajouter genre
         $libgOC = "saucisson";
@@ -43,7 +37,7 @@ $bdd= initialiseConnexionBDD();
 
 
 /////////// get genre by id
-        $getgenre = $genre1->getGenre('1');
+        $getgenre = $genre1->getGenre(1);
         var_dump($getgenre);
 
 

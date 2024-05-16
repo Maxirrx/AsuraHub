@@ -1,6 +1,5 @@
 <?php
 
-require_once ('../BO/Acteur.php'); // Inclure la classe Acteur
 
 class ActeurDAO {
 
@@ -11,20 +10,19 @@ class ActeurDAO {
         $this->db = $db;
     }
 
-    public function addActeur(Acteur $acteur): void
+    public function addActeur(Acteurajoutable $acteurajoutable): void
     {
-        $sql = "INSERT INTO Acteur (codeAct, nomAct, preAct, natAct, datnaissAct) VALUES (?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO Acteur (nomAct, preAct, natAct, datnaissAct) VALUES (?, ?, ?, ?)";
         $stmt = $this->db->prepare($sql);
         $stmt->execute([
-            $acteur->getCodeAct(),
             $acteur->getNomAct(),
             $acteur->getPreAct(),
             $acteur->getNatAct(),
-            $acteur->getDatnaissAct()->format('Y-m-d')
+            $acteur->getDatnaissAct()
         ]);
     }
 
-    public function getActeur(string $codeAct): ?Acteur
+    public function getActeur(int $codeAct): ?Acteur
     {
         $sql = "SELECT * FROM Acteur WHERE codeAct = ?";
         $stmt = $this->db->prepare($sql);
@@ -38,7 +36,7 @@ class ActeurDAO {
             $row['nomAct'],
             $row['preAct'],
             $row['natAct'],
-            new DateTime($row['datnaissAct'])
+            $row['datnaissAct']
         );
     }
 
@@ -50,7 +48,7 @@ class ActeurDAO {
             $acteur->getNomAct(),
             $acteur->getPreAct(),
             $acteur->getNatAct(),
-            $acteur->getDatnaissAct()->format('Y-m-d'),
+            $acteur->getDatnaissAct(),
             $acteur->getCodeAct()
         ]);
     }
@@ -75,7 +73,7 @@ class ActeurDAO {
                 $row['nomAct'],
                 $row['preAct'],
                 $row['natAct'],
-                new DateTime($row['datnaissAct'])
+                $row['datnaissAct']
             );
         }
 
