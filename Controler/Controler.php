@@ -77,11 +77,34 @@ if(isset($_POST['ajout'])){
         $tableau4[] = $data4;
 
 
+        ///menu deroulant acteur///
+        $requestnomoeuvre = $pdo->prepare("SELECT codifOC,titreOriginal FROM oeuvrecinematographique");
+        $requestnomoeuvre->execute();
+        $nomoeuvre = $requestnomoeuvre->fetchAll();
+        $tableau5[] = $nomoeuvre;
 
 
         ///modifier oeuvre///
         if(isset($_POST['edit'])){
+            if (!empty($_POST['titre']) && !empty($_POST['titrefr']) && !empty($_POST['sortie']) && !empty($_POST['resume']) && !empty($_POST['libelle_categorie']) && !empty($_POST['nombre_episodes']) && !empty($_POST['libelle_genre']) && !empty($_POST['nom_acteur']) && !empty($_POST['nom_realisateur'])) {
 
+        $titre = htmlspecialchars($_POST['titre']);
+        $titrefr = htmlspecialchars($_POST['titrefr']);
+        $sortie = intval($_POST['sortie']);
+        $resume = htmlspecialchars($_POST['resume']);
+        $nombre_episodes = intval($_POST['nombre_episodes']);
+        $libelle_categorie = intval($_POST['libelle_categorie']);
+        $genre = intval($_POST['libelle_genre']);
+        $acteur = intval($_POST['nom_acteur']);
+        $realisateur = intval($_POST['nom_realisateur']);
+
+
+
+
+            }
         }elseif (isset($_POST['delete'])){
-            $requestsup = $pdo->prepare("DELETE FROM oeuvrecinematographique WHERE titreOriginal ="($_POST['filmmodif']));
+            $oeuvremodif = intval($_POST['filmmodif']);
+            $requestsup = $pdo->prepare("DELETE FROM oeuvrecinematographique WHERE codifOC = (?)");
+            $requestnomoeuvre->execute($oeuvremodif);
+
 }
