@@ -1,6 +1,6 @@
 <?php
 
-require_once 'Acteur.php'; // Inclure la classe Acteur
+require_once ('../BO/Acteur.php'); // Inclure la classe Acteur
 
 class ActeurDAO {
 

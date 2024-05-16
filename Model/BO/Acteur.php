@@ -3,14 +3,14 @@
 
 class Acteur{
 
-    private String $codeAct;
+    private int $codeAct;
     private String $nomAct;
     private String $preAct;
     private String $natAct;
     private DateTime $datnaissAct;
 
 
-    public function __construct(string $codeAct, string $nomAct, string $preAct, string $natAct, DateTime $datnaissAct){
+    public function __construct(int $codeAct, string $nomAct, string $preAct, string $natAct, DateTime $datnaissAct){
 
 
         $this->codeAct = $codeAct;
@@ -20,12 +20,12 @@ class Acteur{
         $this->datnaissAct = $datnaissAct;
     }
 
-    public function getCodeAct(): string
+    public function getCodeAct(): int
     {
         return $this->codeAct;
     }
 
-    public function setCodeAct(string $codeAct): void
+    public function setCodeAct(int $codeAct): void
     {
         $this->codeAct = $codeAct;
     }

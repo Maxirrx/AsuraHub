@@ -5,7 +5,7 @@ require_once ('../../BO/Genre.php');
 
 $bdd= initialiseConnexionBDD();
 
-///test genre
+///////////////test genre
 ///
 
 //      $trouveroeuvre = $oeuvre->getAllOeuvresCinematographiques();
@@ -13,8 +13,8 @@ $bdd= initialiseConnexionBDD();
 
         $genre1 = new GenreDAO($bdd);
 
-///     $regarder =  $genre1->getAllGenres();
-///     var_dump($regarder);
+        $regarder =  $genre1->getAllGenres();
+        var_dump($regarder);
 ///
 ///
 ///     $supprimer = $genre1->deleteGenre(1);
@@ -32,4 +32,13 @@ $bdd= initialiseConnexionBDD();
 
         $getgenre = $genre1->getGenre('1');
         var_dump($getgenre);
+
+
+//////////////test ecteur
+///
+$acteur = new ActeurDAO();
+
+
+$afficheracteur = $acteur->getAllActeurs();
+var_dump($afficheracteur);
 ?>
