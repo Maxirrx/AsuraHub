@@ -1,6 +1,4 @@
 <?php
-require_once ("../BO/OeuvreCinematographique.php");
-//require_once 'OeuvreCinematographique.php'; // Inclure la classe OeuvreCinematographique
 
 class OeuvreCinematographiqueDAO {
 
@@ -28,7 +26,7 @@ class OeuvreCinematographiqueDAO {
 
     public function getOeuvreCinematographique(int $codifOC): ?OeuvreCinematographique {
         $sql = "SELECT * FROM OeuvreCinematographique WHERE codifOC = ?";
-        $stmt = $this->db->prepare($sql);
+        $stmt = $this->bdd->prepare($sql);
         $stmt->execute([$codifOC]);
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
         if (!$row) {
@@ -46,10 +44,23 @@ class OeuvreCinematographiqueDAO {
             new Realisateur($row['codRea']) // Assuming Realisateur constructor takes a code
         );
     }
+    public  function affichageacceuil(){
+            $sql= "SELECT codifOC, titreOriginal FROM OeuvreCinematographique ";
+            $resultat = $this->bdd->query($sql);
+            $resultat->fetchAll(\PDO::FETCH_ASSOC);
+
+            foreach ($resultat as $acceuil){
+                $filmacceuil[] = new Filmacceuil(
+                    $acceuil['codifOC'],
+                    $acceuil['libgOC']
+                );
+            }
+            return $filmacceuil;
+    }
 
     public function updateOeuvreCinematographique(OeuvreCinematographique $oeuvre): void {
         $sql = "UPDATE OeuvreCinematographique SET titreOriginal = ?, titreFrancais = ?, anneeSortie = ?, resume = ?, nbEpisode = ?, codGenre = ?, classOC = ?, codRea = ? WHERE codifOC = ?";
-        $stmt = $this->db->prepare($sql);
+        $stmt = $this->bdd->prepare($sql);
         $stmt->execute([
             $oeuvre->getTitreOriginal(),
             $oeuvre->getTitreFrancais(),
@@ -65,13 +76,13 @@ class OeuvreCinematographiqueDAO {
 
     public function deleteOeuvreCinematographique(int $codifOC): void {
         $sql = "DELETE FROM OeuvreCinematographique WHERE codifOC = ?";
-        $stmt = $this->db->prepare($sql);
+        $stmt = $this->bdd->prepare($sql);
         $stmt->execute([$codifOC]);
     }
 
     public function getAllOeuvresCinematographiques() {
         $sql = ("SELECT * FROM OeuvreCinematographique");
-        $resultat = $this->bdd->execute($sql);
+        $resultat = $this->bdd->query($sql);
         $oeuvresData = $resultat->fetchAll(\PDO::FETCH_ASSOC);
 
         $oeuvres = [];
