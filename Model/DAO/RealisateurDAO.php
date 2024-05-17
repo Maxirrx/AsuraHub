@@ -1,6 +1,5 @@
 <?php
 
-require_once 'Realisateur.php'; // Inclure la classe Realisateur
 
 class RealisateurDAO {
 
@@ -10,15 +9,14 @@ class RealisateurDAO {
         $this->db = $db;
     }
 
-    public function addRealisateur(Realisateur $realisateur): void {
+    public function addRealisateur(Realisateurajoutable $Realisateurajoutable): void {
         $sql = "INSERT INTO Realisateur (codRea, nomRea, prenomRea, natRea, recompenseRealisateur) VALUES (?, ?, ?, ?, ?)";
         $stmt = $this->db->prepare($sql);
         $stmt->execute([
-            $realisateur->getCodRea(),
-            $realisateur->getNomRea(),
-            $realisateur->getPrenomRea(),
-            $realisateur->getNatRea(),
-            $realisateur->isRecompenseRealisateur()
+            $Realisateurajoutable->getNomRea(),
+            $Realisateurajoutable->getPrenomRea(),
+            $Realisateurajoutable->getNatRea(),
+            $Realisateurajoutable->isRecompenseRealisateur()
         ]);
     }
 

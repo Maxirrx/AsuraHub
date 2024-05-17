@@ -1,19 +1,29 @@
 <?php
+
+require_once '../Model/BO/OeuvreCinematographique.php';
+require_once '../Model/BDDManager.php';
+require_once '../Model/DAO/OeuvreCinematographiqueDAO.php';
+require_once '../Model/BO/Genre.php';
+require_once '../Model/BO/Acteur.php';
+require_once '../Model/BO/Realisateur.php';
+require_once '../Model/BO/Filmacceuil.php';
+
 ///inclusion du DAO nécessaire
 ///include OeuvreCinematographiqueDAO::class;
 
 
-///connexion a la base///
+$bdd = initialiseConnexionBDD();
 
-$url = 'mysql:host=localhost;dbname=asurahub';
-$username = 'root';
-$pass = '';
+$oeuvre = new OeuvreCinematographiqueDAO($bdd);
+////////////test oeuvre
+///
 
-try {
-    $pdo = new PDO($url, $username, $pass);
-} catch (PDOException $e) {
-    echo "Pas connecter";
-}
+$affichageacceuil = [];
+$donnees = $oeuvre->affichageacceuil();
+
+
+
+?>
 
 
 ///ajout d oeuvre///
@@ -127,3 +137,4 @@ if(isset($_POST['ajout'])){
       ///          echo "peut pas";
       ///       }
       /// }
+

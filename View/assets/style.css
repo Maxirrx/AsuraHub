@@ -68,8 +68,8 @@ main {
 .film-card {
     background-color: #222222;
     border-radius: 10px;
-    overflow: hidden; 
-    position: relative; 
+    overflow: hidden;
+    position: relative;
 }
 
 .film-card h3 {
@@ -82,9 +82,9 @@ main {
 
 .film-poster {
     width: 100%;
-    height: auto; 
-    border-radius: 10px 10px 0 0; 
-    object-fit: cover; 
+    height: auto;
+    border-radius: 10px 10px 0 0;
+    object-fit: cover;
 }
 
 
@@ -378,3 +378,12 @@ main {
 .edit-work-container input[type="submit"]:hover {
     background-color: #0066cc;
 }
+
+.film{
+    color: yellow;
+
+}
+
+
+
+

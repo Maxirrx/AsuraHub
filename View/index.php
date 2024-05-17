@@ -1,5 +1,11 @@
 <?php
-    $title = 'helloworld';
+require_once '../Model/BO/OeuvreCinematographique.php';
+require_once '../Model/BDDManager.php';
+require_once '../Model/DAO/OeuvreCinematographiqueDAO.php';
+require_once '../Model/BO/Genre.php';
+require_once '../Model/BO/Acteur.php';
+require_once '../Model/BO/Realisateur.php';
+require_once '../Model/BO/Filmacceuil.php';
 ?>
 
 <!DOCTYPE html>
@@ -13,30 +19,29 @@
 <body>
 <?php
     include 'header.php';
-include '../Controler/Controler.php';
 ?>
     <main>
-        <section class="films">
-            <h2>A L'Affiche</h2>
-            <div class="film-card">
-                <h3>Titre du film 1</h3>
-                <p>Résumé du film 1...</p>
-                <p>Année de parution : 2020</p>
-                <p>Nombre d'épisodes : 1</p>
-            </div>
-            <div class="film-card">
-                <h3>Titre du film 1</h3>
-                <p>Résumé du film 1...</p>
-                <p>Année de parution : 2020</p>
-                <p>Nombre d'épisodes : 1</p>
-            </div>
-            <div class="film-card">
-                <h3>Titre du film 1</h3>
-                <p>Résumé du film 1...</p>
-                <p>Année de parution : 2020</p>
-                <p>Nombre d'épisodes : 1</p>
-            </div>
-        </section>
+<header>
+    <h1>Liste des films</h1>
+</header>
+<table>
+    <?php
+
+
+    $bdd = initialiseConnexionBDD();
+
+    $oeuvre = new OeuvreCinematographiqueDAO($bdd);
+    ////////////test oeuvre
+    ///
+
+    $affichageacceuil = [];
+    $donnees = $oeuvre->affichageacceuil();
+
+
+    ?>
+        </tbody>
+        </table>
+
     </main>
     <?php
     include 'footer.php';

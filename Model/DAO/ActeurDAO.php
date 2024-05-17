@@ -15,10 +15,10 @@ class ActeurDAO {
         $sql = "INSERT INTO Acteur (nomAct, preAct, natAct, datnaissAct) VALUES (?, ?, ?, ?)";
         $stmt = $this->db->prepare($sql);
         $stmt->execute([
-            $acteur->getNomAct(),
-            $acteur->getPreAct(),
-            $acteur->getNatAct(),
-            $acteur->getDatnaissAct()
+            $acteurajoutable->getNomAct(),
+            $acteurajoutable->getPreAct(),
+            $acteurajoutable->getNatAct(),
+            $acteurajoutable->getDatnaissAct()
         ]);
     }
 

@@ -2,6 +2,7 @@
 require_once('../../BDDManager.php');
 require_once('../ActeurDAO.php');
 require_once('../../BO/Acteur.php');
+require_once '../../BO/Acteurajoutable.php';
 
 $bdd= initialiseConnexionBDD();
 
@@ -18,9 +19,9 @@ $bdd= initialiseConnexionBDD();
         var_dump($supprimeracteur);
 
 ////////////////test modifier
-        $acteurmodifiable = new Acteur(2,'Kevin','Roux','Francais','1973.08.12');
+        $acteurmodifiable = new Acteur(2,'Kevin','Roux','Francais','1973-08-12');
         try {
-            $modifieracteur = $acteur->updateActeur();
+            $acteur->updateActeur($acteurmodifiable);
             echo 'ca marche';
         }catch (Exception $e){
             echo $e->getMessage();

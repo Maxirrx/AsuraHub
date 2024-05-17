@@ -1,8 +1,6 @@
 <?php
 
-class Realisateur{
-
-    private int $codRea;
+class Realisateurajoutable{
 
     private String $nomRea;
 
@@ -13,24 +11,14 @@ class Realisateur{
     private int $recompenseRealisateur;
 
 
-    public function __construct(int $codRea, string $nomRea, string $prenomRea, string $natRea, int $recompenseRealisateur){
+    public function __construct(string $nomRea, string $prenomRea, string $natRea, int $recompenseRealisateur){
 
 
-        $this->codRea = $codRea;
+
         $this->nomRea = $nomRea;
         $this->prenomRea = $prenomRea;
         $this->natRea = $natRea;
         $this->recompenseRealisateur = $recompenseRealisateur;
-    }
-
-    public function getCodRea(): int
-    {
-        return $this->codRea;
-    }
-
-    public function setCodRea(int $codRea): void
-    {
-        $this->codRea = $codRea;
     }
 
     public function getNomRea(): string
