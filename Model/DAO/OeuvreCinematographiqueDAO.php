@@ -61,7 +61,7 @@ class OeuvreCinematographiqueDAO {
             }
             $liendetail = "detailoeuvre.php";
         foreach ($result as $acceuil) {
-            echo "<div class='film'>";
+            echo "<div class='film-list'>";
             echo "<a href = '$liendetail' class ='film'  >" .$acceuil['titreOriginal'] ." </a href>";
             echo "</div>";
         }
