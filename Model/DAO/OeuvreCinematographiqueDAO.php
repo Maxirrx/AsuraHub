@@ -52,7 +52,7 @@ class OeuvreCinematographiqueDAO {
             foreach ($resultat as $acceuil){
                 $filmacceuil[] = new Filmacceuil(
                     $acceuil['codifOC'],
-                    $acceuil['libgOC']
+                    $acceuil['titreOriginal']
                 );
             }
             return $filmacceuil;
