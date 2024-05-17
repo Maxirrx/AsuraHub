@@ -15,11 +15,11 @@
     <main>
         <div class="add-work-container">
             <h2>Ajouter une œuvre</h2>
-            <form action="ajouter_oeuvre.php" method="post">
+            <form action="../View/ajoutOeuvre.php" method="post">
                 <input type="text" name="titre" placeholder="Titre de l'œuvre orginial" required>
                 <input type="text" name="titrefr" placeholder="Titre de l'œuvre en Francais" required>
                 <h4>Année de parution</h4>
-                <select name="sortie" size="1">
+                <select type = "number" name="sortie" size="1">
                 <option value="2023">2023</option>
                 <option value="2022">2022</option>
                 <option value="2021">2021</option>
@@ -98,29 +98,29 @@
                 <br>
                 <br>
                 <textarea name="resume" placeholder="Résumé de l'œuvre" required></textarea>
-                <input type="number" name="nombre_episodes" placeholder="Nombre d'épisodes" required>
+                <input type="number" name="nombre_episodes" placeholder="Nombre d'épisodes" min ="0" required>
                 <h4>Nom de la categorie</h4>
-                <select name="libelle_categorie" size="1">
-                    <?php foreach ($data as $row): ?>
-                        <option value="<?php echo $row['classOC']; ?>"><?php echo $row['libclaOC']; ?></option>
+                <select type = "number" name="libelle_categorie" size="1">
+                    <?php foreach ($data as $catego): ?>
+                        <option value="<?php echo $catego['classOC']; ?>"><?php echo $catego['libclaOC']; ?></option>
                     <?php endforeach; ?>
                 </select>
                 <h4>Nom du genre</h4>
-                <select name="libelle_genre" size="1">
-                    <?php foreach ($data2 as $row): ?>
-                        <option value="<?php echo $row['codGenre']; ?>"><?php echo $row['libgOC']; ?></option>
+                <select type = "number" name="libelle_genre" size="1">
+                    <?php foreach ($data2 as $genre): ?>
+                        <option value="<?php echo $genre['codGenre']; ?>"><?php echo $genre['libgOC']; ?></option>
                     <?php endforeach; ?>
                 </select>
                 <h4>Nom de l'acteur</h4>
-                <select name="nom_acteur" size="1">
-                    <?php foreach ($data3 as $row): ?>
-                        <option value="<?php echo $row['codeAct']; ?>"><?php echo $row['nomAct'] . ' ' . $row['preAct']; ?></option>
+                <select type = "number" name="nom_acteur" size="1">
+                    <?php foreach ($data3 as $acteur): ?>
+                        <option value="<?php echo $acteur['codeAct']; ?>"><?php echo $acteur['nomAct'] . ' ' . $acteur['preAct']; ?></option>
                     <?php endforeach; ?>
                 </select>
                 <h4>Nom du realisateur</h4>
-                <select name="nom_realisateur" size="1">
-                    <?php foreach ($data4 as $row): ?>
-                        <option value="<?php echo $row['codRea']; ?>"><?php echo $row['nomRea'] . ' ' . $row['prenomRea']; ?></option>
+                <select type = "number" name="nom_realisateur" size="1">
+                    <?php foreach ($data4 as $real): ?>
+                        <option value="<?php echo $real['codRea']; ?>"><?php echo $real['nomRea'] . ' ' . $real['prenomRea']; ?></option>
                     <?php endforeach; ?>
                 </select>
                 <br>
