@@ -46,17 +46,30 @@ class OeuvreCinematographiqueDAO {
     }
     public  function affichageacceuil(){
             $sql= "SELECT codifOC, titreOriginal FROM OeuvreCinematographique ";
+        try {
             $resultat = $this->bdd->query($sql);
-            $resultat->fetchAll(\PDO::FETCH_ASSOC);
-
-            foreach ($resultat as $acceuil){
+        } catch (PDOException $e) {
+            die($e->getMessage());
+        }
+            $result = $resultat->fetchAll(\PDO::FETCH_ASSOC);
+            $filmacceuil = [];
+            foreach ($result as $acceuil){
                 $filmacceuil[] = new Filmacceuil(
                     $acceuil['codifOC'],
-                    $acceuil['titreOriginal']
+                    $acceuil['titreOriginal'],
                 );
             }
+            $liendetail = "detailoeuvre.php";
+        foreach ($result as $acceuil) {
+            echo "<div class='film'>";
+            echo "<a href = '$liendetail' class ='film'  >" .$acceuil['titreOriginal'] ." </a href>";
+            echo "</div>";
+        }
             return $filmacceuil;
     }
+
+
+
 
     public function updateOeuvreCinematographique(OeuvreCinematographique $oeuvre): void {
         $sql = "UPDATE OeuvreCinematographique SET titreOriginal = ?, titreFrancais = ?, anneeSortie = ?, resume = ?, nbEpisode = ?, codGenre = ?, classOC = ?, codRea = ? WHERE codifOC = ?";

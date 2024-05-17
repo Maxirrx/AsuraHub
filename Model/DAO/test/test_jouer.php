@@ -12,4 +12,11 @@ $bdd= initialiseConnexionBDD();
         $regarder = $jouer->getAllJouer();
         var_dump($regarder);
 
+
+//////////test supprimer depuis acteur
+///
+        $idacteur = 1;
+
+
+
 ?>
