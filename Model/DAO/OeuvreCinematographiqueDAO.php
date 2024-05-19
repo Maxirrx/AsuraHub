@@ -24,26 +24,87 @@ class OeuvreCinematographiqueDAO {
         ]);
     }
 
-    public function getOeuvreCinematographique(int $codifOC): ?OeuvreCinematographique {
-        $sql = "SELECT * FROM OeuvreCinematographique WHERE codifOC = ?";
-        $stmt = $this->bdd->prepare($sql);
-        $stmt->execute([$codifOC]);
-        $row = $stmt->fetch(PDO::FETCH_ASSOC);
-        if (!$row) {
-            return null;
+
+        public function getOeuvreCinematographique(int $codifOC): ?array {
+            $sql = "SELECT * FROM OeuvreCinematographique WHERE codifOC = ?";
+            $stmt = $this->bdd->prepare($sql);
+            $stmt->execute([$codifOC]);
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            if (!$row) {
+                return null;
+            }
+
+            // Récupérer le nom du genre
+// Récupérer le nom du genre
+            $sql = "SELECT libgOC FROM Genre WHERE codGenre = ?";
+            try {
+                $stmt = $this->bdd->prepare($sql);
+                $stmt->execute([$row['codGenre']]);
+            } catch (Exception $e) {
+                echo $e->getMessage();
+            }
+
+            $genreData = $stmt->fetch(PDO::FETCH_ASSOC);
+            $genreNom = $genreData['libgOC'];
+
+
+
+
+            // Récupérer la classification
+            $sql = "SELECT libclaOC FROM Classification WHERE classOC = ?";
+            try {
+                $stmt1 = $this->bdd->prepare($sql);
+                $stmt1->execute([$row['classOC']]);
+            } catch (Exception $e) {
+                echo $e->getMessage();
+            }
+
+            $classificationdata = $stmt1->fetch(PDO::FETCH_ASSOC);
+            $classificationNom = $classificationdata['libclaOC'];
+
+
+
+            // Récupérer le nom  du réalisateur    public function getRealisateur(string $codRea): ?Realisateur {
+            $sql = "SELECT nomRea FROM Realisateur WHERE codRea = ?";
+            try {
+                $stmt1 = $this->bdd->prepare($sql);
+                $stmt1->execute([$row['codRea']]);
+            } catch (Exception $e) {
+                echo $e->getMessage();
+            }
+
+            $realisateurdata = $stmt1->fetch(PDO::FETCH_ASSOC);
+            $realisateurNom = $realisateurdata['nomRea'];
+
+            ////////recuperer le prenom
+            $sql = "SELECT prenomRea FROM Realisateur WHERE codRea = ?";
+            try {
+                $stmt1 = $this->bdd->prepare($sql);
+                $stmt1->execute([$row['codRea']]);
+            } catch (Exception $e) {
+                echo $e->getMessage();
+            }
+
+            $realisateurdata2 = $stmt1->fetch(PDO::FETCH_ASSOC);
+            $realisateurprenom = $realisateurdata2['prenomRea'];
+
+            $realisateuridentité = $realisateurprenom . ' ' . $realisateurNom;
+
+
+            // tableau
+            $result = [
+                'titreOriginal' => $row['titreOriginal'],
+                'titreFrancais' => $row['titreFrancais'],
+                'anneeSortie' => $row['anneeSortie'],
+                'resume' => $row['resume'],
+                'nbEpisode' => $row['nbEpisode'],
+                'genreNom' => $genreNom,
+                'classificationNom' => $classificationNom,
+                'realisateurIdentite' => $realisateuridentité
+            ];
+            return $result;
+
         }
-        return new OeuvreCinematographique(
-            $row['codifOC'],
-            $row['titreOriginal'],
-            $row['titreFrancais'],
-            $row['anneeSortie'],
-            $row['resume'],
-            $row['nbEpisode'],
-            new Genre($row['codGenre']), // Assuming Genre constructor takes a code
-            new Classification($row['classOC']), // Assuming Classification constructor takes a code
-            new Realisateur($row['codRea']) // Assuming Realisateur constructor takes a code
-        );
-    }
     public  function affichageacceuil(){
             $sql= "SELECT codifOC, titreOriginal FROM OeuvreCinematographique ";
         try {

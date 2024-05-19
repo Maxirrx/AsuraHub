@@ -6,6 +6,7 @@ require_once '../../BO/Genre.php';
 require_once '../../BO/Acteur.php';
 require_once '../../BO/Realisateur.php';
 require_once '../../BO/Filmacceuil.php';
+require_once '../../BO/OeuvreCinematographiqueaffichable.php';
 
 $bdd = initialiseConnexionBDD();
 
@@ -16,5 +17,8 @@ $bdd = initialiseConnexionBDD();
 //        var_dump($affichageacceuil);
 //
 
-        $affichagefilm = $oeuvre->affichagefilm();
+//        $affichagefilm = $oeuvre->affichagefilm();
+
+$infooeure = $oeuvre->getOeuvreCinematographique(1);
+
 ?>
