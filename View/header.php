@@ -7,8 +7,8 @@
                 <li><a href="films">Films</a></li>
                 <li><a href="series">Series</a></li>
                 <li><a href="animes">Animes</a></li>
-                <li><a href="ajoutOeuvre">Ajout Oeuvre</a></li>
-                <li><a href="modifierOeuvre">Modifier Oeuvre</a></li>
+                <li><a href="selectionajout.php">Ajout</a></li>
+                <li><a href="selectionmodifier.php">Modifier</a></li>
                 
             </ul>
             <div class="login-btn">
