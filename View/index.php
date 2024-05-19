@@ -34,7 +34,6 @@ require_once '../Model/BO/Filmacceuil.php';
     ////////////test oeuvre
     ///
 
-    $affichageacceuil = [];
     $donnees = $oeuvre->affichageacceuil();
 
 

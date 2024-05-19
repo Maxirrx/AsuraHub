@@ -1,7 +1,11 @@
 <?php
-    $title = 'helloworld';
-    include './data/data.php';
-include '../Controler/Controler.php';
+require_once '../Model/BO/OeuvreCinematographique.php';
+require_once '../Model/BDDManager.php';
+require_once '../Model/DAO/OeuvreCinematographiqueDAO.php';
+require_once '../Model/BO/Genre.php';
+require_once '../Model/BO/Acteur.php';
+require_once '../Model/BO/Realisateur.php';
+require_once '../Model/BO/Filmacceuil.php';
 ?>
 
 <!DOCTYPE html>
@@ -19,15 +23,14 @@ include '../Controler/Controler.php';
     <main>
         <section class="films">
             <h2>Series</h2>
-            <?php foreach ($series as $serie) : ?>
-           <div class="film-card">
-                <h3><?= $serie['title'] ?></h3>
-                <img class="film-poster" alt="html image example" src=<?= $serie['poster'] ?> />
-                <p><?= $serie['content'] ?></p>
-                <p><?= $serie['yearOfRelease'] ?></p>
-                <p><?= $serie['numbersOfEpisodes'] ?></p>
-            </div>
-            <?php endforeach ?> 
+            <?php
+
+            $bdd = initialiseConnexionBDD();
+
+            $oeuvre = new OeuvreCinematographiqueDAO($bdd);
+
+            $affichageserie = $oeuvre->affichageserie();
+            ?>
         </section>
     </main>
     <?php

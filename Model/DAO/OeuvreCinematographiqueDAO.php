@@ -61,7 +61,7 @@ class OeuvreCinematographiqueDAO {
             }
             $liendetail = "detailoeuvre.php";
         foreach ($result as $acceuil) {
-            echo "<div class='film'>";
+            echo "<div class='film-list'>";
             echo "<a href = '$liendetail' class ='film'  >" .$acceuil['titreOriginal'] ." </a href>";
             echo "</div>";
         }
@@ -69,6 +69,115 @@ class OeuvreCinematographiqueDAO {
     }
 
 
+    public  function affichagefilm(){
+        $sql= "SELECT classOC FROM Classification where libclaOC = 'Film'";
+        try {
+            $resultatclass = $this->bdd->query($sql);
+        } catch (PDOException $e) {
+            die($e->getMessage());
+        }
+        $classfilm = $resultatclass->fetch(\PDO::FETCH_ASSOC);
+        ////transformer en entier
+        $classfilmint = intval($classfilm['classOC']);
+
+
+        $sql= "SELECT codifOC, titreOriginal FROM OeuvreCinematographique where classOC = ". $classfilmint . ";";
+
+        try {
+            $resultat = $this->bdd->query($sql);
+        } catch (PDOException $e) {
+            die($e->getMessage());
+        }
+        $result = $resultat->fetchAll(\PDO::FETCH_ASSOC);
+        $filmacceuil = [];
+        foreach ($result as $acceuil){
+            $filmacceuil[] = new Filmacceuil(
+                $acceuil['codifOC'],
+                $acceuil['titreOriginal'],
+            );
+        }
+        $liendetail = "detailoeuvre.php";
+        foreach ($result as $acceuil) {
+            echo "<div class='film-list'>";
+            echo "<a href = '$liendetail' class ='film'  >" .$acceuil['titreOriginal'] ." </a href>";
+            echo "</div>";
+        }
+        return $filmacceuil;
+    }
+
+    public  function affichageserie(){
+        $sql= "SELECT classOC FROM Classification where libclaOC = 'Serie'";
+        try {
+            $resultatserie = $this->bdd->query($sql);
+        } catch (PDOException $e) {
+            die($e->getMessage());
+        }
+        $classserie = $resultatserie->fetch(\PDO::FETCH_ASSOC);
+        ////transformer en entier
+        $classserieint = intval($classserie['classOC']);
+
+
+
+        $sql= "SELECT codifOC, titreOriginal FROM OeuvreCinematographique where classOC = ". $classserieint . ";";
+
+        try {
+            $resultat = $this->bdd->query($sql);
+        } catch (PDOException $e) {
+            die($e->getMessage());
+        }
+        $result = $resultat->fetchAll(\PDO::FETCH_ASSOC);
+        $filmacceuil = [];
+        foreach ($result as $acceuil){
+            $filmacceuil[] = new Filmacceuil(
+                $acceuil['codifOC'],
+                $acceuil['titreOriginal'],
+            );
+        }
+        $liendetail = "detailoeuvre.php";
+        foreach ($result as $acceuil) {
+            echo "<div class='film-list'>";
+            echo "<a href = '$liendetail' class ='film'  >" .$acceuil['titreOriginal'] ." </a href>";
+            echo "</div>";
+        }
+        return $filmacceuil;
+    }
+
+    public  function affichagesanime(){
+        $sql= "SELECT classOC FROM Classification where libclaOC = 'Anime'";
+        try {
+            $resultatanime = $this->bdd->query($sql);
+        } catch (PDOException $e) {
+            die($e->getMessage());
+        }
+        $classanime = $resultatanime->fetch(\PDO::FETCH_ASSOC);
+        ////transformer en entier
+        $classanimeint = intval($classanime['classOC']);
+
+
+
+        $sql= "SELECT codifOC, titreOriginal FROM OeuvreCinematographique where classOC = ". $classanimeint . ";";
+
+        try {
+            $resultat = $this->bdd->query($sql);
+        } catch (PDOException $e) {
+            die($e->getMessage());
+        }
+        $result = $resultat->fetchAll(\PDO::FETCH_ASSOC);
+        $filmacceuil = [];
+        foreach ($result as $acceuil){
+            $filmacceuil[] = new Filmacceuil(
+                $acceuil['codifOC'],
+                $acceuil['titreOriginal'],
+            );
+        }
+        $liendetail = "detailoeuvre.php";
+        foreach ($result as $acceuil) {
+            echo "<div class='film-list'>";
+            echo "<a href = '$liendetail' class ='film'  >" .$acceuil['titreOriginal'] ." </a href>";
+            echo "</div>";
+        }
+        return $filmacceuil;
+    }
 
 
     public function updateOeuvreCinematographique(OeuvreCinematographique $oeuvre): void {

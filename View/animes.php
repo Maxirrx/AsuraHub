@@ -1,6 +1,11 @@
 <?php
-    include './data/data.php';
-    include '../Controler/Controler.php';
+require_once '../Model/BO/OeuvreCinematographique.php';
+require_once '../Model/BDDManager.php';
+require_once '../Model/DAO/OeuvreCinematographiqueDAO.php';
+require_once '../Model/BO/Genre.php';
+require_once '../Model/BO/Acteur.php';
+require_once '../Model/BO/Realisateur.php';
+require_once '../Model/BO/Filmacceuil.php';
 ?>
 
 <!DOCTYPE html>
@@ -18,15 +23,19 @@
     <main>
         <section class="films">
             <h2>Animes</h2>
-            <?php foreach ($animes as $anime) : ?>
-           <div class="film-card">
-                <h3><?= $anime['title'] ?></h3>
-                <img class="film-poster" alt="html image example" src=<?= $anime['poster'] ?> />
-                <p><?= $anime['content'] ?></p>
-                <p><?= $anime['yearOfRelease'] ?></p>
-                <p><?= $anime['numbersOfEpisodes'] ?></p>
-            </div>
-            <?php endforeach ?> 
+            <?php
+
+
+            $bdd = initialiseConnexionBDD();
+
+            $oeuvre = new OeuvreCinematographiqueDAO($bdd);
+            ////////////test oeuvre
+            ///
+
+            $donnees = $oeuvre->affichagesanime();
+
+
+            ?>
         </section>
     </main>
     <?php
