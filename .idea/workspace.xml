@@ -5,16 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="896311c3-9fde-4aa7-9f13-4fe6bc2c4cb4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BDD/insert_into_OC_2.sql" beforeDir="false" afterPath="$PROJECT_DIR$/BDD/insert_into_OC_2.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controler/Controler.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controler/Controler.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Model/DAO/OeuvreCinematographiqueDAO.php" beforeDir="false" afterPath="$PROJECT_DIR$/Model/DAO/OeuvreCinematographiqueDAO.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Model/DAO/test/test_oeuvre.php" beforeDir="false" afterPath="$PROJECT_DIR$/Model/DAO/test/test_oeuvre.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/animes.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/animes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/films.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/films.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/series.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/series.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/detailoeuvre.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/detailoeuvre.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +63,7 @@
       <workItem from="1715808294414" duration="669000" />
       <workItem from="1715876735935" duration="10588000" />
       <workItem from="1715949060488" duration="11074000" />
-      <workItem from="1716122831618" duration="2971000" />
+      <workItem from="1716122831618" duration="10212000" />
     </task>
     <servers />
   </component>
