@@ -9,10 +9,12 @@ require_once '../../BO/Filmacceuil.php';
 
 $bdd = initialiseConnexionBDD();
 
-        $oeuvre = new OeuvreCinematographiqueDAO($bdd);
-////////////test oeuvre
-///
-        $affichageacceuil = $oeuvre->affichageacceuil();
-        var_dump($affichageacceuil);
+           $oeuvre = new OeuvreCinematographiqueDAO($bdd);
+//////////////test oeuvre
+/////
+//        $affichageacceuil = $oeuvre->affichageacceuil();
+//        var_dump($affichageacceuil);
+//
 
+        $affichagefilm = $oeuvre->affichagefilm();
 ?>
