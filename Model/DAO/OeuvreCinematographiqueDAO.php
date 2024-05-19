@@ -123,8 +123,7 @@ class OeuvreCinematographiqueDAO {
             $liendetail = "detailoeuvre.php";
         foreach ($result as $acceuil) {
             echo "<div class='film-list'>";
-            echo "<a href = '$liendetail' class ='film'  >" .$acceuil['titreOriginal'] ." </a href>";
-            echo "</div>";
+            echo "<a href = '$liendetail?codifOC=" . $acceuil['codifOC'] . "' class ='film'  >" .$acceuil['titreOriginal'] ." </a href>";            echo "</div>";
         }
             return $filmacceuil;
     }
@@ -160,7 +159,7 @@ class OeuvreCinematographiqueDAO {
         $liendetail = "detailoeuvre.php";
         foreach ($result as $acceuil) {
             echo "<div class='film-list'>";
-            echo "<a href = '$liendetail' class ='film'  >" .$acceuil['titreOriginal'] ." </a href>";
+            echo "<a href = '$liendetail?codifOC=" . $acceuil['codifOC'] . "' class ='film'  >" .$acceuil['titreOriginal'] ." </a href>";
             echo "</div>";
         }
         return $filmacceuil;
@@ -197,8 +196,7 @@ class OeuvreCinematographiqueDAO {
         $liendetail = "detailoeuvre.php";
         foreach ($result as $acceuil) {
             echo "<div class='film-list'>";
-            echo "<a href = '$liendetail' class ='film'  >" .$acceuil['titreOriginal'] ." </a href>";
-            echo "</div>";
+            echo "<a href = '$liendetail?codifOC=" . $acceuil['codifOC'] . "' class ='film'  >" .$acceuil['titreOriginal'] ." </a href>";            echo "</div>";
         }
         return $filmacceuil;
     }
@@ -234,8 +232,7 @@ class OeuvreCinematographiqueDAO {
         $liendetail = "detailoeuvre.php";
         foreach ($result as $acceuil) {
             echo "<div class='film-list'>";
-            echo "<a href = '$liendetail' class ='film'  >" .$acceuil['titreOriginal'] ." </a href>";
-            echo "</div>";
+            echo "<a href = '$liendetail?codifOC=" . $acceuil['codifOC'] . "' class ='film'  >" .$acceuil['titreOriginal'] ." </a href>";            echo "</div>";
         }
         return $filmacceuil;
     }

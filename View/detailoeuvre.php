@@ -24,20 +24,23 @@ $bdd = initialiseConnexionBDD();
 include 'header.php';
 ?>
 <?php
-$oeuvre = new OeuvreCinematographiqueDAO($bdd);
 
-$infooeure = $oeuvre->getOeuvreCinematographique(11);
+if (isset($_GET['codifOC'])) {
+    $codifOC = $_GET['codifOC'];
+    $oeuvre = new OeuvreCinematographiqueDAO($bdd);
+
+    $infooeure = $oeuvre->getOeuvreCinematographique($codifOC);
 
 
-$titreOriginal = $infooeure['titreOriginal'];
-$titreFrancais = $infooeure['titreFrancais'];
-$anneeSortie = $infooeure['anneeSortie'];
-$resume = $infooeure['resume'];
-$nbEpisode = $infooeure['nbEpisode'];
-$genreNom = $infooeure['genreNom'];
-$classificationNom = $infooeure['classificationNom'];
-$realisateurIdentite = $infooeure['realisateurIdentite'];
-
+    $titreOriginal = $infooeure['titreOriginal'];
+    $titreFrancais = $infooeure['titreFrancais'];
+    $anneeSortie = $infooeure['anneeSortie'];
+    $resume = $infooeure['resume'];
+    $nbEpisode = $infooeure['nbEpisode'];
+    $genreNom = $infooeure['genreNom'];
+    $classificationNom = $infooeure['classificationNom'];
+    $realisateurIdentite = $infooeure['realisateurIdentite'];
+}
 ?>
 
 <table>
