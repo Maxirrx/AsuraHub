@@ -9,7 +9,6 @@
 <body>
 <?php
     include 'header.php';
-    include '../Controler/Controler.php';
 ?>
 
     <main>

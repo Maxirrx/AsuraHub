@@ -43,6 +43,26 @@ class GenreDAO {
         $stmt = $this->db->prepare($sql);
         $stmt->execute([$codGenre]);
     }
+////////verifier si il existe
+///
+public function verifexistence(string $nomgenre)
+{
+    try {
+
+        $sql = "SELECT COUNT(*) FROM Genre WHERE libgOC = ?";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute($nomgenre);
+        $count = $stmt->fetchColumn();
+        var_dump($count);
+        if ($count > 0) {
+            echo "La valeur existe déjà dans la base de données.";
+        } else {
+            echo "La valeur n'existe pas dans la base de données.";
+        }
+    } catch (PDOException $e) {
+        die('Erreur : ' . $e->getMessage());
+    }
+}
 
 ///fonctionnel
     public function getAllGenres() {
