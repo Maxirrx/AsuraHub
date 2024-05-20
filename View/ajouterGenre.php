@@ -9,7 +9,12 @@
 <body>
 <?php
 include 'header.php';
-include '../Controler/Controler.php';
+require_once '../Model/BDDManager.php';
+require_once '../Model/DAO/GenreDAO.php';
+require_once '../Model/BO/Genre.php';
+
+$bdd = initialiseConnexionBDD();
+
 ?>
 
 <main>
@@ -24,6 +29,14 @@ include '../Controler/Controler.php';
 </main>
 
 <?php
+if(isset($_POST['ajoutgenre'])) {
+    if ($_POST['nomgenre'] != null)
+        $genre = $_POST['nomgenre'];
+    $genreDAO = new GenreDAO($bdd);
+
+    $ajoutgenre = $genreDAO->addGenre($genre);
+
+}
 include 'footer.php';
 ?>
 </body>

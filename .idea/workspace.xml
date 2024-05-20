@@ -7,12 +7,12 @@
     <list default="true" id="896311c3-9fde-4aa7-9f13-4fe6bc2c4cb4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controler/Controler.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controler/Controlermodif_Genre.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/ajoutOeuvre.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/ajoutOeuvre.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/View/ajouterActeur.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/ajouterActeur.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/ajouterClassification.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/ajouterClassification.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/ajouterReal.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/ajouterReal.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/modifierActeur.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/modifierActeur.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/modifierClassification.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/modifierClassification.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/modifierReal.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/modifierReal.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/ajouterGenre.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/ajouterGenre.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/modifierGenre.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/modifierGenre.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +68,9 @@
       <workItem from="1715876735935" duration="10588000" />
       <workItem from="1715949060488" duration="11074000" />
       <workItem from="1716122831618" duration="17274000" />
-      <workItem from="1716202257559" duration="636000" />
+      <workItem from="1716202257559" duration="792000" />
+      <workItem from="1716203068529" duration="151000" />
+      <workItem from="1716203230314" duration="6794000" />
     </task>
     <servers />
   </component>

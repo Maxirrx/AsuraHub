@@ -8,25 +8,58 @@
 <body>
 <?php
 include 'header.php';
-include '../Controler/Controler.php';
+require_once '../Model/BDDManager.php';
+require_once '../Model/DAO/GenreDAO.php';
+require_once '../Model/BO/Genre.php';
+
+$bdd = initialiseConnexionBDD();
 ?>
 
 <main>
     <div class="edit-work-container">
         <h2>Modifier ou Supprimer un genre</h2>
         <form action="../View/modifierGenre.php" method="post">
-            <select name="genremodif" size="1">
-                <?php foreach ($nomgenre as $oeuvremodifiable): ?>
-                    <option value="<?php echo $oeuvremodifiable['codifOC']; ?>"><?php echo $oeuvremodifiable['titreOriginal']; ?></option>
+            <?php
+            $genreDAO = new GenreDAO($bdd);
+            $genres = $genreDAO->getAllGenres();
+            ?>
+
+            <select name="genre">
+                <?php foreach ($genres as $genre): ?>
+                    <option value="<?php echo ($genre->getCodGenre()); ?>">
+                        <?php echo ($genre->getLibgOC()); ?>
+                    </option>
                 <?php endforeach; ?>
             </select>
 
             <br>
-            <input type="text" name="nomgenrem" placeholder="Nouveau nom de genre" required>
-
+            <input type="text" name="nouveaunomgenre" placeholder="Nouveau nom genre" required>
+            <input type="submit" name="modifiergenre" value="Modifier Genre">
+            <br>
+            <br>
+            <input type="submit" name="supprimergenre" value="Supprimer Genre">
+        </form>
 </main>
 
 <?php
+if (isset($_POST['modifiergenre'])) {
+    if (!empty($_POST['genre_id']) && !empty($_POST['nouveaunomgenre'])) {
+        $genreId = $_POST['genre_id'];
+        $nouveauNom = $_POST['nouveaunomgenre'];
+
+        $genreDAO = new GenreDAO($bdd);
+        $genreDAO->updateGenre($genreId, $nouveauNom);
+    }
+}
+
+if (isset($_POST['supprimergenre'])) {
+    if (!empty($_POST['genre_id'])) {
+        $genreId = $_POST['genre_id'];
+
+        $genreDAO = new GenreDAO($bdd);
+        $genreDAO->deleteGenre($genreId);
+    }
+}
 include 'footer.php';
 ?>
 
