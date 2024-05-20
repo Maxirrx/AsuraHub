@@ -24,10 +24,10 @@ $bdd = initialiseConnexionBDD();
             $genres = $genreDAO->getAllGenres();
             ?>
 
-            <select name="genre">
+            <select name="codGenre">
                 <?php foreach ($genres as $genre): ?>
-                    <option value="<?php echo ($genre->getCodGenre()); ?>">
-                        <?php echo ($genre->getLibgOC()); ?>
+                    <option value="<?php echo htmlspecialchars($genre->getCodGenre()); ?>">
+                        <?php echo htmlspecialchars($genre->getLibgOC()); ?>
                     </option>
                 <?php endforeach; ?>
             </select>
@@ -43,25 +43,27 @@ $bdd = initialiseConnexionBDD();
 
 <?php
 if (isset($_POST['modifiergenre'])) {
-    if (!empty($_POST['genre_id']) && !empty($_POST['nouveaunomgenre'])) {
-        $genreId = $_POST['genre_id'];
-        $nouveauNom = $_POST['nouveaunomgenre'];
+    if (!empty($_POST['codGenre']) && !empty($_POST['nouveaunomgenre'])) {
+        $codGenre = $_POST['codGenre'];
+        $libOC = $_POST['nouveaunomgenre'];
+        $genreobj = new Genre($codGenre, $libOC);
 
         $genreDAO = new GenreDAO($bdd);
-        $genreDAO->updateGenre($genreId, $nouveauNom);
+        $genreDAO->updateGenre($genreobj);
     }
 }
 
 if (isset($_POST['supprimergenre'])) {
-    if (!empty($_POST['genre_id'])) {
-        $genreId = $_POST['genre_id'];
+    if (!empty($_POST['codGenre'])) {
+        $codGenre = $_POST['codGenre'];
 
         $genreDAO = new GenreDAO($bdd);
-        $genreDAO->deleteGenre($genreId);
+        $genreDAO->deleteGenre($codGenre);
     }
 }
 include 'footer.php';
 ?>
+
 
 </script>
 </body>

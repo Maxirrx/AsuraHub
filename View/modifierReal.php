@@ -12,21 +12,20 @@ include 'header.php';
 
 <main>
     <div class="edit-work-container">
-        <h2>Ajouter Acteur</h2>
-        <form>
-            <?php foreach ($nomgenre as $oeuvremodifiable): ?>
-                <option value="<?php echo $oeuvremodifiable['codifOC']; ?>"><?php echo $oeuvremodifiable['titreOriginal']; ?></option>
-            <?php endforeach; ?>
-            <br>
-            <input type="submit" name="ajoutgenre" value="Ajouter Genre">
-        </form>
+        <h2>Modifier Realisateur</h2>
         <form action="../View/modifierGenre.php" method="post">
             <br>
-            <input type="text" name="nomacteur" placeholder="Nouveau nom de genre" required>
-            <input type="text" name="prenomacteur" placeholder="Nouveau nom de genre" required>
-            <input type="text" name="nationaliteacteur" placeholder="Nouveau nom de genre" required>
-            <input type="date" name="datedenaiss" placeholder="Nouveau nom de genre" required>
+            <input type="text" name="nomreal" placeholder="Nouveau nom du realisateur" required>
+            <input type="text" name="prenomreal" placeholder="Nouveau nom du realisateur" required>
+            <input type="text" name="nationalitreal" placeholder="Nouveau nom du realisateur" required>
             <br>
+            <h4>A obtenu une récompense</h4>
+
+            <input type="checkbox" name="recompense"  required>
+            <br>
+            <br>
+            <br>
+
             <input type="submit" name="ajoutgenre" value="Ajouter Genre">
 </main>
 
