@@ -18,9 +18,9 @@ class OeuvreCinematographiqueDAO {
             $oeuvre->getAnneeSortie(),
             $oeuvre->getResume(),
             $oeuvre->getNbEpisode(),
-            $oeuvre->getCodGenre()->getCodeGenre(), // Assuming getCodeGenre() is a method in Genre class
-            $oeuvre->getClassOC()->getCodeClass(), // Assuming getCodeClass() is a method in Classification class
-            $oeuvre->getCodRea()->getCodeRea() // Assuming getCodeRea() is a method in Realisateur class
+            $oeuvre->getCodGenre()->getCodeGenre(),
+            $oeuvre->getClassOC()->getCodeClass(),
+            $oeuvre->getCodRea()->getCodeRea()
         ]);
     }
 
@@ -35,7 +35,6 @@ class OeuvreCinematographiqueDAO {
             }
 
             // Récupérer le nom du genre
-// Récupérer le nom du genre
             $sql = "SELECT libgOC FROM Genre WHERE codGenre = ?";
             try {
                 $stmt = $this->bdd->prepare($sql);

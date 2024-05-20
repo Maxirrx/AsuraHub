@@ -1,56 +1,49 @@
 <?php
-///inclusion du DAO nécessaire
-///include OeuvreCinematographiqueDAO::class;
+require_once '../Model/BDDManager.php';
+$pdo = initialiseConnexionBDD();
 
-
-///connexion a la base///
-
-$url = 'mysql:host=localhost;dbname=asurahub';
-$username = 'root';
-$pass = '';
-
-try {
-    $pdo = new PDO($url, $username, $pass);
-} catch (PDOException $e) {
-    echo "Pas connecter";
-}
-
-
-///ajout d oeuvre///
-
-if(isset($_POST['ajout'])){
-    if(!empty($_POST['titre']) && !empty($_POST['titrefr']) && !empty($_POST['sortie']) && !empty($_POST['resume']) && !empty($_POST['libelle_categorie']) && !empty($_POST['nombre_episodes'])&& !empty($_POST['liste_acteurs'])&& !empty($_POST['nom_realisateur'])){
+// Ajout d'oeuvre
+if (isset($_POST['ajout'])) {
+    if (!empty($_POST['titre']) && !empty($_POST['titrefr']) && !empty($_POST['sortie']) && !empty($_POST['resume']) && !empty($_POST['libelle_categorie']) && !empty($_POST['nombre_episodes']) && !empty($_POST['liste_acteurs']) && !empty($_POST['nom_realisateur'])) {
         $titre = $_POST['titre'];
         $titrefr = $_POST['titrefr'];
         $sortie = $_POST['sortie'];
         $resume = $_POST['resume'];
         $nombre_episodes = $_POST['nombre_episodes'];
         $libelle_categorie = $_POST['libelle_categorie'];
-        $genre = $_POST['libelle_genre'] ;
+        $genre = $_POST['libelle_genre'];
+        $nomreal = $_POST['nomreal'];
+        $prereal = $_POST['prereal'];
+        $nomAct = $_POST['nomAct'];
+        $preAct = $_POST['preAct'];
 
-        $requestreal = $pdo->prepare("SELECT codRea FROM realisateur where nomRea,preRea =" ($_POST['nomreal'], $_POST['prereal']));
-        $requestreal->execute();
-        $reponsereal = $requestreal;
-        $realisateur = $reponsereal;
+        // Recherche du réalisateur
+        $requestreal = $pdo->prepare("SELECT codRea FROM realisateur WHERE nomRea = ? AND preRea = ?");
+        $requestreal->execute([$nomreal, $prereal]);
+        $reponsereal = $requestreal->fetch(PDO::FETCH_ASSOC);
+        $realisateur = $reponsereal ? $reponsereal['codRea'] : null;
 
-        $requestacteur = $pdo->prepare("SELECT codeAct FROM acteur where nomAct,preAct =" ($_POST['nomAct'], $_POST['preAct']));
-        $requestacteur->execute();
-        $reponseacteur = $requestacteur;
-        $acteur = $reponseacteur;
+        // Recherche de l'acteur
+        $requestacteur = $pdo->prepare("SELECT codeAct FROM acteur WHERE nomAct = ? AND preAct = ?");
+        $requestacteur->execute([$nomAct, $preAct]);
+        $reponseacteur = $requestacteur->fetch(PDO::FETCH_ASSOC);
+        $acteur = $reponseacteur ? $reponseacteur['codeAct'] : null;
 
-        $requestoeuvre = $pdo->prepare("SELECT codifOC FROM oeuvrecinematographique where titreOriginal ="($_POST['titre']));
-        $requestoeuvre ->execute();
-        $reponseoeuvre = $requestoeuvre;
-        $oeuvre = $reponseoeuvre;
+        // Recherche de l'oeuvre
+        $requestoeuvre = $pdo->prepare("SELECT codifOC FROM oeuvrecinematographique WHERE titreOriginal = ?");
+        $requestoeuvre->execute([$titre]);
+        $reponseoeuvre = $requestoeuvre->fetch(PDO::FETCH_ASSOC);
+        $oeuvre = $reponseoeuvre ? $reponseoeuvre['codifOC'] : null;
 
-        $request = $pdo->prepare("INSERT INTO oeuvrecinematographique (titreOriginal, titreFrancais, anneeSortie, resume, nbEpisode, codRea, classOC, codGenre) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?)");
-        $request->execute([$titre, $titrefr, $sortie, $resume, $nombre_episodes,$realisateur, $libelle_categorie, $genre]);
+        // Insertion de l'oeuvre
+        $request = $pdo->prepare("INSERT INTO oeuvrecinematographique (titreOriginal, titreFrancais, anneeSortie, resume, nbEpisode, codRea, classOC, codGenre) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+        $request->execute([$titre, $titrefr, $sortie, $resume, $nombre_episodes, $realisateur, $libelle_categorie, $genre]);
 
-        $requestajoutacteur = $pdo->prepare("insert into jouer (codeAct,codifOC,roleAct) values "($acteur,$oeuvre,1));
-        $requestajoutacteur->execute();
+        // Insertion de l'acteur dans jouer
+        $requestajoutacteur = $pdo->prepare("INSERT INTO jouer (codeAct, codifOC, roleAct) VALUES (?, ?, ?)");
+        $requestajoutacteur->execute([$acteur, $oeuvre, 1]);
     }
 }
-
 
 ///menu deroulant cartegorie///
         $requestcategorie = $pdo->prepare("SELECT classOC, libclaOC FROM Classification");
@@ -85,10 +78,3 @@ $tableau4[] = $data4;
 
 
 
-
-///modifier oeuvre///
-if(isset($_POST['edit'])){
-
-}elseif (isset($_POST['delete'])){
-    $requestsup = $pdo->prepare("DELETE FROM oeuvrecinematographique WHERE titreOriginal ="($_POST['filmmodif']));
-}
