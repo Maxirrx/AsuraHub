@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="./assets/style.css">
     <title>Modifier ou Supprimer une classification</title>
 </head>
-<body>
+
 <?php
 include 'header.php';
 require_once '../Model/BDDManager.php';
@@ -13,7 +13,6 @@ require_once '../Model/DAO/ClassificationDAO.php';
 require_once '../Model/BO/Classification.php';
 
 $bdd = initialiseConnexionBDD();
-
 ?>
 
 <main>
@@ -25,6 +24,7 @@ $bdd = initialiseConnexionBDD();
 
             <input type="submit" name="ajoutlassification" value="Ajouter Genre">
 </main>
+        </form>
 
 <?php
 if(isset($_POST['ajoutlassification'])) {

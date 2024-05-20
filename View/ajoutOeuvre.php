@@ -9,6 +9,7 @@
 <body>
 <?php
     include 'header.php';
+    require '../Controler/Controler_brouillon.php';
 ?>
 
     <main>

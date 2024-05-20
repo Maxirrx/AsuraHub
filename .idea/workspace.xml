@@ -6,11 +6,20 @@
   <component name="ChangeListManager">
     <list default="true" id="896311c3-9fde-4aa7-9f13-4fe6bc2c4cb4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/DAO/OeuvreCinematographiqueDAO.php" beforeDir="false" afterPath="$PROJECT_DIR$/Model/DAO/OeuvreCinematographiqueDAO.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controler/Controler_brouillon.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controler/Controler_brouillon.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/ajoutOeuvre.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/ajoutOeuvre.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/View/ajouterClassification.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/ajouterClassification.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/modifierClassification.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/modifierClassification.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/modifierGenre.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/modifierGenre.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/modifierReal.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/modifierReal.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/ajouterReal.php" beforeDir="false" afterPath="$PROJECT_DIR$/View/ajouterReal.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/assets/images/1103895.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/assets/images/1147009.jpg-c_310_420_x-f_jpg-q_x-xxyxx.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/assets/images/1160935_224x340.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/assets/images/5392835.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/assets/images/5687502.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/assets/images/71zickzTw+L._AC_SY879_.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/assets/images/908308_poster_scale_480x640.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/assets/images/fast_furious_x.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/assets/images/one_piece_poster_by_daoneonly89.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/data/data.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +77,7 @@
       <workItem from="1716122831618" duration="17274000" />
       <workItem from="1716202257559" duration="792000" />
       <workItem from="1716203068529" duration="151000" />
-      <workItem from="1716203230314" duration="12494000" />
+      <workItem from="1716203230314" duration="16352000" />
     </task>
     <servers />
   </component>
